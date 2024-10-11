@@ -1,3 +1,31 @@
-from django.shortcuts import render
+from rest_framework.generics import (
+    ListAPIView,
+    CreateAPIView,
+    RetrieveUpdateDestroyAPIView,
+)
 
-# Create your views here.
+
+from .models import (
+    Doctor,
+)
+
+
+from .serializers import (
+    DoctorSerializers,
+)
+
+
+class ListDoctorView(ListAPIView, CreateAPIView):
+    allowed_method = ["GET", "POST"]
+    serializer_class = DoctorSerializers
+    queryset = Doctor.objects.all()
+
+
+class DetailDoctorsView(RetrieveUpdateDestroyAPIView):
+    allowed_method = [
+        "GET",
+        "PUT",
+        "DELETE",
+    ]
+    serializer_class = DoctorSerializers
+    queryset = Doctor.objects.all()

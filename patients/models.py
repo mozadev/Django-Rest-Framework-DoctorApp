@@ -28,3 +28,4 @@ class MedicalRecord(models.Model):
     diagnosis = models.TextField()
     treatment = models.TextField()
     follow_up_date = models.DateField()
+    
