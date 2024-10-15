@@ -13,12 +13,12 @@ class DoctorSerializer(serializers.ModelSerializer):
             return value
         raise serializers.ValidationError("The email should be include @example")
 
-    def validate(self, attrs):
-        if len(attrs["contact_number"]) < 10 and attrs["is_on_vacation"]:
-            raise serializers.ValidationError(
-                "Please, Enter a valid number before you go on vacations"
-            )
-        return super().validate(attrs)
+    # def validate(self, attrs):
+    #     if len(attrs["contact_number"]) < 10 and attrs["is_on_vacation"]:
+    #         raise serializers.ValidationError(
+    #             "Please, Enter a valid number before you go on vacations"
+    #         )
+    #     return super().validate(attrs)
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
