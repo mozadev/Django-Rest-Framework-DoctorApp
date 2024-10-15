@@ -19,8 +19,8 @@ router = DefaultRouter()
 router.register("doctors", DoctorViewSet)
 
 urlpatterns = [
-    path("doctors/", ListDoctorView.as_view()),
-    path("doctors/<int:id>/", DetailDoctorsView.as_view()),
+    # path("doctors/", ListDoctorView.as_view()),
+    # path("doctors/<int:id>/", DetailDoctorsView.as_view()),
     path("departments/", ListDepartmentView.as_view()),
     path("departments/<int:id>", DetailDepartmentView.as_view()),
     path("doctoravailabilities/", ListDoctorAvailabilityView.as_view()),
