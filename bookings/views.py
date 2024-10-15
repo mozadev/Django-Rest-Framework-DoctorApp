@@ -9,6 +9,10 @@ from .serializers import AppointmentSerializer, MedicalNoteSerializer
 
 
 class ListAppointmentView(ListAPIView, CreateAPIView):
+    """
+    Get the list of scheduled medical appointments
+    """
+
     allowed_method = ["GET", "POST"]
     serializer_class = AppointmentSerializer
     queryset = Appointment.objects.all()

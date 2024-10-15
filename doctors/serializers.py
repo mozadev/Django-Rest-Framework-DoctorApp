@@ -11,9 +11,7 @@ class DoctorSerializer(serializers.ModelSerializer):
     def validate_email(self, value):
         if "@example.com" in value:
             return value
-        raise serializers.ValidationError(
-            "The email should be include @example"
-        )
+        raise serializers.ValidationError("The email should be include @example")
 
     def validate(self, attrs):
         if len(attrs["contact_number"]) < 10 and attrs["is_on_vacation"]:
@@ -21,3 +19,21 @@ class DoctorSerializer(serializers.ModelSerializer):
                 "Please, Enter a valid number before you go on vacations"
             )
         return super().validate(attrs)
+
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model: Department
+        fields = "__all__"
+
+
+class DoctorAvailabilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model: DoctorAvailability
+        fields = "__all__"
+
+
+class MedicalNoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model: MedicalNote
+        fields = "__all__"

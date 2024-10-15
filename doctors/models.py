@@ -32,5 +32,3 @@ class MedicalNote(models.Model):
     )
     note = models.TextField()
     date = models.DateField()
-
-    
