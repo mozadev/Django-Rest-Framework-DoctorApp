@@ -1,22 +1,34 @@
 from rest_framework import serializers
 
 from .models import Insurance, MedicalRecord, Patient
+from bookings.serializers import AppointmentSerializer
 
 
 class PatientSerializer(serializers.ModelSerializer):
+    appointments = AppointmentSerializer(many=True, read_only=True)
+
     class Meta:
         model = Patient
-        fields = '__all__'
+        fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "date_of_birth",
+            "contact_number",
+            "email",
+            "address",
+            "medical_history",
+            "appointments",
+        ]
 
 
 class InsuranceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Insurance
-        fields = '__all__'
+        fields = "__all__"
 
 
 class MedicalRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicalRecord
-        fields = '__all__'
-        
+        fields = "__all__"

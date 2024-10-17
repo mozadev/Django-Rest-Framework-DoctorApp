@@ -4,6 +4,7 @@ from .models import Doctor, Department, DoctorAvailability, MedicalNote
 
 
 class DoctorSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Doctor
         fields = "__all__"
@@ -21,7 +22,7 @@ class DoctorSerializer(serializers.ModelSerializer):
                 "Please, enter a number before you go on vacations"
             )
         return super().validate(attrs)
-    # if not continue with functionality of father class 
+    # if not continue with functionality of father class
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
